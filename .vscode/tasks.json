@@ -1,0 +1,74 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "PLATFORM=${input:platform}",
+                "PREFIX=${input:prefix}",
+                "SAMPLE_FILE=${input:sample}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/projects/snake"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Clean & Re-Build",
+            "type": "shell",
+            "command": "make PLATFORM=${input:platform} clean && make PLATFORM=${input:platform} PREFIX=${input:prefix} SAMPLE_FILE=${input:sample}",
+            "options": {
+                "cwd": "${workspaceFolder}/projects/snake"
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "platform",
+            "type": "pickString",
+            "description": "Elige la plataforma (solo las tres de examen):",
+            "default": "rpi_hat",
+            "options": [
+                "linux_stdio",
+                "rpi_hat",
+                "stm32f411e_acc_lcd"
+            ]
+        },
+        {
+            "id": "prefix",
+            "type": "pickString",
+            "description": "Elige el prefijo del compilador (en blanco para nativo):",
+            "default": "",
+            "options": [
+                "",
+                "aarch64-none-linux-gnu-",
+                "arm-linux-gnueabihf-"
+            ]
+        },
+        {
+            "id": "sample",
+            "type": "pickString",
+            "description": "Elige el sample (en blanco para compilar el juego entero):",
+            "default": "",
+            "options": [
+                "",
+                "sample_time",
+                "sample_random",
+                "sample_input",
+                "sample_display"
+            ]
+        }
+    ]
+}

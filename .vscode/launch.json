@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Linux Remote",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/projects/snake/output/snake",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}/projects/snake",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/lsel/cross-pi-gcc-12.2/bin/aarch64-none-linux-gnu-gdb",
+            "miDebuggerServerAddress": "10.8.43.111:2345",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
