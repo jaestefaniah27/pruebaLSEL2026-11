@@ -1,93 +1,17 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"label": "Build",
-			"options": {
-				"cwd": "${workspaceRoot}"
-			},
-			"group": {
-				"kind": "build"
-			},
-			"linux": {
-				"command": "make"
-			},
-			"osx": {
-				"command": "make"
-			},
-			"windows": {
-				"command": "mingw32-make"
-			},
-			"args": [
-				"PLATFORM=${input:platform}", "PREFIX=${input:prefix}", "SAMPLE_FILE=${input:sample}"
-			]
-		},
-		{
-			"label": "Clean",
-			"command": "make",
-			"options": {
-				"cwd": "${workspaceRoot}"
-			},
-			"linux": {
-				"command": "make"
-			},
-			"osx": {
-				"command": "make"
-			},
-			"windows": {
-				"command": "mingw32-make"
-			},
-			"args": [
-				"clean"
-			]
-		},
-		{
-			"label": "Clean & Re-Build",
-			"dependsOn": [
-				"Clean",
-				"Build"
-			],
-			"dependsOrder": "sequence"
-		},
-	],
-	"inputs": [     
-		{
-			"id": "platform",
-			"type": "pickString",
-			"description": "Enter the platform:",
-			"default": "rpi_hat",
-			"options": [
-				"rpi_hat",
-				"linux_stdio",
-				"stm32f411e_acc_lcd",
-			]
-		},
-		{
-			"id": "sample",
-			"type": "pickString",
-			"description": "Enter the sample:",
-			"default": "",
-			"options": [
-				"",
-				"sample_time",
-				"sample_random",
-				"sample_input",
-				"sample_display",
-			]
-		},
-		{
-				"id": "prefix",
-				"type": "pickString",
-				"description": "Enter the prefix:",
-				"default": "",
-				"options": [
-					"",
-					"aarch64-unknown-linux-gnu-",
-					"aarch64-none-linux-gnu-",
-					"arm-none-linux-gnueabihf-",
-					"arm-linux-gnueabihf-",
-					"arm-none-eabi-",
-				]
-		}
-	]	
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Ejecutar Tests Ceedling",
+            "type": "shell",
+            "command": "ruby -S ceedling test:all",
+            "options": {
+                "cwd": "${workspaceFolder}/ceedling"
+            },
+            "group": "test",
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+    ]
 }

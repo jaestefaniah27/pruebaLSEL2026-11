@@ -103,4 +103,6 @@ void fsm_set_state(fsm_t *p_fsm, int state);
  */
 void fsm_fire(fsm_t *p_fsm);
 
+bool fsm_check(fsm_t *p_fsm, char name);
+
 #endif /* FSM_H_ */

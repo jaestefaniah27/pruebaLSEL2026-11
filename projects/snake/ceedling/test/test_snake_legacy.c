@@ -6,10 +6,10 @@
 
 #include <stdlib.h>
 
-#include "mock_snake_time.h"
-#include "mock_snake_random.h"
-#include "mock_snake_input.h"
-#include "mock_snake_display.h"
+#include "snake_time.h"
+#include "snake_random.h"
+#include "snake_input.h"
+#include "snake_display.h"
 
 #define ROWS    8
 #define COLS    16

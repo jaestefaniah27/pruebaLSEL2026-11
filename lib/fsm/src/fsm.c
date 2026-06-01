@@ -83,3 +83,7 @@ void fsm_fire(fsm_t *p_fsm)
         }
     }
 }
+
+bool fsm_check(fsm_t *p_fsm, char name){
+    return (p_fsm->name == name);
+}
